@@ -1,35 +1,35 @@
-import { Task } from "../../tasks";
-import { TableViewRoot } from "./TableView.styles";
+import {Task} from "../../tasks";
+import {TableViewRoot} from "./TableView.styles";
 
 const TableView = (props: { allTasks: Task[] }) => {
-  const { allTasks } = props;
+  const {allTasks} = props;
 
   return (
     <TableViewRoot>
-      <div className="table">
-        <div className="row">
-          <div className="headerCell">Task Name</div>
-          <div className="headerCell">Owner</div>
-          <div className="headerCell">Description</div>
-          <div className="headerCell">Priority</div>
-          <div className="headerCell">Status</div>
-          <div className="headerCell">Budget</div>
-          <div className="headerCell">Spent</div>
-          <div className="headerCell">Left</div>
-        </div>
+      <table className="table">
+        <tr className="row">
+          <th className="headerCell">Task Name</th>
+          <th className="headerCell">Owner</th>
+          <th className="headerCell">Description</th>
+          <th className="headerCell">Priority</th>
+          <th className="headerCell">Status</th>
+          <th className="headerCell">Budget</th>
+          <th className="headerCell">Spent</th>
+          <th className="headerCell">Left</th>
+        </tr>
         {allTasks.map((task) => (
-          <div className="row">
-            <div className="cell">{task.taskName}</div>
-            <div className="cell">{task.owner}</div>
-            <div className="cell">{task.description}</div>
-            <div className="cell">{task.priority}</div>
-            <div className="cell">{task.status}</div>
-            <div className="cell">${task.budget.toLocaleString()}</div>
-            <div className="cell">${task.spent.toLocaleString()}</div>
-            <div className="cell">${task.remainingSpend.toLocaleString()}</div>
-          </div>
+          <tr className="row">
+            <td className="cell">{task.taskName}</td>
+            <td className="cell">{task.owner}</td>
+            <td className="cell">{task.description}</td>
+            <td className="cell">{task.priority}</td>
+            <td className="cell">{task.status}</td>
+            <td className="cell">${task.budget.toLocaleString()}</td>
+            <td className="cell">${task.spent.toLocaleString()}</td>
+            <td className="cell">${task.remainingSpend.toLocaleString()}</td>
+          </tr>
         ))}
-      </div>
+      </table>
     </TableViewRoot>
   );
 };
